@@ -1,7 +1,7 @@
 #ifndef MY_SHELL_H
 #define MY_SHELL_H
 #define _GNU_SOURCE
-#include "lists.h"
+#include "listing.h"
 #include <stdio.h>
 /**
  * struct param_s: The necessary shell variables are stored in the structure.
@@ -13,9 +13,9 @@
  * @argsCap: maximum number of arguments the args array can contain
  * @status: Run commands should return status
  * @tokCount: Number of tokens in a single line of input
- * @Description: All the variables that were supplied into other functions are stored in this structure.
  * @alias_head: singly linked list of aliases
- * @env_head: singly linked array of environment variables
+ * @env_head: singly linked array of environment variable
+ * Description: stores vares supplied into other funcs
  */
 typedef struct param_s
 {
@@ -24,7 +24,8 @@ unsigned int tokCount;
 char *buffer;
 char *nextCommand;
 unsigned int argsCap;
-unsigned int lineCount;int status;
+unsigned int lineCount;
+int status;
 list_t *env_head;
 char **argv;
 list_t *alias_head;
