@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include "shell.h"
 #include <stdio.h>
-/**
+/*
  * process_string - process the next command into string tokens
  * @params: parameters
  *
@@ -50,19 +50,19 @@ int process_string(param_t *params)
 	{
 		token = _strtok(params->nextCommand, " \n\t", &state);
 		(params->args)[(params->tokCount)++] = token;
-		if (params->tokCount == params->argsCap)
-		{
-			params->argsCap += 10;
-			params->args = _realloc(params->args,
-						params->argsCap - 10,
-						params->argsCap);
-			if (!(params->args))
-			{
-				write(STDERR_FILENO, "realloc error\n", 14);
-				free_params(params);
-				exit(-1);
-			}
-		}
-	}
-	return (params->tokCount - 1);
+if(params->tokCount == params->argsCap)
+{
+params->argsCap+=10;
+params->args =_realloc(params->args,
+params->argsCap -10,
+params->argsCap);
+if(!(params->args))
+{
+write(STDERR_FILENO,"realloc error\n", 14);
+free_params(params);
+exit(-1);
+}
+}
+}
+return(params->tokCount - 1);
 }
