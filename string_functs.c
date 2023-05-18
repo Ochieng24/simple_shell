@@ -1,9 +1,9 @@
 #include <stdlib.h>
 /**
- * str_concat - concatenates two strings
- * @s1: first string argument
- * @s2: second string argument
- * Return: Null on failure, else ptr to malloc
+ *str_concat - joins two strings together.
+ *@s1: first string parameter
+ *@s2: Second string parameter
+ *Return: zero when unsuccessful,else, malloc ptr
  */
 char *str_concat(char *s1, char *s2)
 {
@@ -48,8 +48,8 @@ char *str_concat(char *s1, char *s2)
 }
 /**
  * string_nconcat - concatenates two strings
- * @s1: first string argument
- * @s2: second string argument
+ * @s1: first string param
+ * @s2: second string param
  * @n: amount of bytes for s2
  * Return: Null on failure, else ptr to malloc
  */
