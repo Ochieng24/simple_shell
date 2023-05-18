@@ -67,7 +67,7 @@ char *_strtok(char *str, char *delim, char **savePtr)
 		modifier++;
 	}
 	if (*modifier == '\0')
-		*savePtr = modifier;
+		*savePtri = modifier;
 	else
 		*savePtr = modifier + 1;
 	*modifier = '\0';
