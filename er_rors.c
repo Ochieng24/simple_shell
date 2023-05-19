@@ -3,13 +3,13 @@
 #include "main.h"
 
 /*
- *write_error - write error msg to stderr*
+ * write_error - write error msg to stderr
  * @params: parameters struct contains info about the command and prog
  * @msg: error message to print
  * func takes a parameter struct containing info about current
  * command and program and an error message to print to stderr.func
  * builts an error msg str from the info in the param struct
- *and the error msg and writes to stderr using the write
+ * and the error msg and writes to stderr using the write
  */
 void write_error(param_t *params, char *mg)
 {

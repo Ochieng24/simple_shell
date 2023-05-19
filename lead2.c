@@ -3,23 +3,19 @@
 #include <errno.h>
 #include "main.h"
 #include "shell.h"
-#include "lists.h"
 /**
-*get_file - Retrieve the proper path to a command file
-@params: parameters
-*Return: If the command file cannot be located, return NULL.
-*The string must be released.
+ * get_file - Retrieve the proper path to a command file
+ * @params: parameters
+ * Return: If the command file cannot be located, return NULL.
+ * The string must be released.
  */
-char *get_file(param_t *params)
+char *get_file(param_t *params)/*Retrieve the proper path to a command file*/
 {
-char *path = NULL;
-char *exePath = NULL, *exeArg = NULL, *tmp = NULL;
-char *state = NULL;
-
+char *exePath = NULL, *exeArg = NULL, *tmp = NULL, *state = NULL, *path = NULL;
 if (access(params->args[0], F_OK | X_OK) == 0)
 {
 free(path);
-return (_strdup(params->args[0]));
+return (strdup(params->args[0]));
 }
 if (errno == EACCES)
 {
@@ -49,13 +45,11 @@ free(exePath);
 return (exeArg);
 }
 free(exePath);
-exePath = _strtok(path, ":", &state);
+exePath = _strtok(NULL, ":", &state);
 }
 params->status = 127;
 write_error(params, "not found\n");
 free(path);
-free(exePath);
 free(exeArg);
 return (NULL);
 }
-
