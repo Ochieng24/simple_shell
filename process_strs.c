@@ -9,8 +9,7 @@
 */
 int process_string(param_t *params)
 {
-char *token = NULL, *state = NULL;
-char *alias = NULL, *state_2 = NULL, *val;
+char *token = NULL, *state = NULL, *alias = NULL, *state_2 = NULL, *val;
 list_t *node;
 token = _strtok(params->nextCommand, " \n\t", &state);
 if (!token)
@@ -26,8 +25,7 @@ token = NULL;
 alias = _strdup(node->val);
 if (!alias)
 {
-write(STDERR_FILENO,
-"alias expansion malloc error\n", 18);
+write(STDERR_FILENO, "alias expansion malloc error\n", 18);
 free_params(params);
 exit(-1);
 }
@@ -48,17 +46,11 @@ while (token)
 {
 token = _strtok(params->nextCommand, " \n\t", &state);
 (params->args)[(params->tokCount)++] = token;
-if (params->tokCount
-== params->argsCap)
+if (params->tokCount == params->argsCap)
 {
-params->argsCap
-+= 10;
-params->args
-= _realloc(params->args,
-params->argsCap - 10,
-params->argsCap);
-if
-	(!(params->args))
+params->argsCap += 10;
+params->args = _realloc(params->args, params->argsCap - 10, params->argsCap);
+if (!(params->args))
 {
 write(STDERR_FILENO, "realloc error\n", 14);
 free_params(params);
@@ -66,6 +58,5 @@ exit(-1);
 }
 }
 }
-return
-(params->tokCount - 1);
+return (params->tokCount - 1);
 }

@@ -1,17 +1,17 @@
 #include <unistd.h>
 #include "shell.h"
 #include "main.h"
-
-/*
- * write_error - write error msg to stderr
- * @params: parameters struct contains info about the command and prog
+/**
+ * write_error - write error message to stderr
+ * @params: parameters struct containing info about the command and program
  * @msg: error message to print
- * func takes a parameter struct containing info about current
- * command and program and an error message to print to stderr.func
- * builts an error msg str from the info in the param struct
- * and the error msg and writes to stderr using the write
+ *
+ * This function takes a parameter struct containing information about current
+ * command and program and an error message to print to stderr. The function
+ * builds an error message string from the information in the parameter struct
+ * and the error message, and writes it to stderr using the write system call.
  */
-void write_error(param_t *params, char *mg)
+void write_error(param_t *params, char *msg)
 {
 char errBuffer[1024] = {0};
 char *writeHead = errBuffer, *bufPtr = errBuffer;
