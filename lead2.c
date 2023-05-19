@@ -4,14 +4,14 @@
 #include "main.h"
 #include "shell.h"
 /**
- * get_file - Retrieve the proper path to a command file
- * @params: parameters
- * Return: If the command file cannot be located, return NULL.
+ * get_file - Retrieve command file path
+ * @params: params
+ * Return: NULL If command file cannot be locate.
  * The string must be released.
  */
 char *get_file(param_t *params)/*Retrieve the proper path to a command file*/
 {
-char *exePath = NULL, *exeArg = NULL, *tmp = NULL, *state = NULL, *path = NULL;
+char *execute_path = NULL, *execute_args = NULL, *tmp = NULL, *current_state = NULL, *path = NULL;
 if (access(params->args[0], F_OK | X_OK) == 0)
 {
 free(path);
@@ -29,27 +29,27 @@ if (!path)
 write_error(params, "not found\n");
 return (NULL);
 }
-exePath = _strtok(path, ":", &state);
-while (exePath)
+execute_path = _strtok(path, ":", &current_state);
+while (execute_path)
 {
-tmp = exeArg;
-exeArg = str_concat(exePath, "/");
+tmp = execute_args;
+execute_args = str_concat(execute_path, "/");
 free(tmp);
-tmp = exeArg;
-exeArg = str_concat(exeArg, params->args[0]);
+tmp = execute_args;
+execute_args = str_concat(execute_args, params->args[0]);
 free(tmp);
-if (access(exeArg, F_OK) == 0)
+if (access(execute_args, F_OK) == 0)
 {
 free(path);
-free(exePath);
-return (exeArg);
+free(execute_path);
+return (execute_args);
 }
-free(exePath);
-exePath = _strtok(NULL, ":", &state);
+free(execute_path);
+execute_path = _strtok(NULL, ":", &current_state);
 }
 params->status = 127;
 write_error(params, "not found\n");
 free(path);
-free(exeArg);
+free(execute_args);
 return (NULL);
 }
