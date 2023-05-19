@@ -71,18 +71,18 @@ list_t *add_node(list_t **head, char *str, char *val)
  */
 list_t *get_node(list_t *head, char *str)
 {
-	list_t *h;
+	list_t *d;
 
 	if (!head)
 		return (NULL);
-	h = head;
-	while (h)
+	d = head;
+	while (d)
 	{
 		if (!_strcmp(h->str, str))
 			break;
-		h = h->next;
+		d = d->next;
 	}
-	return (h);
+	return (d);
 }
 
 /**
