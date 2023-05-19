@@ -24,32 +24,32 @@ int validNum(char *s)
  */
 void _myExit(param_t *params)
 {
-	int status = 0;
+	int point = 0;
 
 	if (!params->args[1])/*no argument after command*/
 	{
-		status = params->status;/* current status*/
+		point = params->point;/* current status*/
 		free_params(params);/* set mem free*/
-		exit(status);/* end with current status*/
+		exit(point);/* end with current status*/
 	}
 	if (validNum(params->args[1]))/*argument valid nmbr*/
 	{
-		status = _atoi((params->args)[1]);/* convert to integer*/
-		if (status == -1)
+		point = _atoi((params->args)[1]);/* convert to integer*/
+		if (point == -1)
 		{
 			write_error(params, "Illegal number: ");/* error msg to strd output*/
 			write(STDERR_FILENO, params->args[1],/*newline to strd output*/
 			      _strlen(params->args[1]));/*argument to  strd error output*/
 			write(STDERR_FILENO, "\n", 1);/*new line char to strd output*/ 
-			params->status = 2;/*set 2*/
+			params->point = 2;/*set 2*/
 			return;/*Return*/
 		}
 		free_params(params);/*mem allctd for prmtr*/
-		exit(status);/*end prog wth spcfd status*/
+		exit(point);/*end prog wth spcfd status*/
 	}
 	else
 	{
-		params->status = 2;/*set 2*/
+		params->point = 2;/*set 2*/
 		write_error(params, "Illegal number: ");
 		write(STDERR_FILENO, params->args[1], _strlen(params->args[1]));
 		write(STDERR_FILENO, "\n", 1);
