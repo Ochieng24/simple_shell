@@ -4,21 +4,19 @@
 #include <stdlib.h>
 
 /**
- * _getenv - Retrieves an environ` variable's value
- * @name: The environment vares to be returned name
- * @params: Pointer to the environ list-containing parameter struct
- * Return: pointer to the environ vares value, or NULL if no
- * matchs seen vares value replicated & returned str.no match func ret NULL
+ * _getenv - Gets environment var value
+ * @name: name of the env var to be returned
+ * @params: Ptr to env list
+ * Return: ptr to environ variables value
  */
-
 char *_getenv(char *name, param_t *params)
 {
-list_t *ptr = params->env_head;
-while (ptr)
+list_t *pointing_list = params->env_head;
+while (pointing_list)
 {
-if (!_strcmp(name, ptr->str))
+if (!_strcmp(name, pointing_list->str))
 return (_strdup(ptr->val));
-ptr = ptr->next;
+pointing_list = pointing_list->next;
 }
 return (NULL);
 }
