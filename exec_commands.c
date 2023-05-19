@@ -1,3 +1,4 @@
+
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/wait.h>
@@ -11,22 +12,25 @@
  */
 void run_command(param_t *params)
 {
-	char *exeFile = NULL;
+	/*variable declarations */
+	char *executeFile = NULL;
 	pid_t pid;
 	void (*buildin)(param_t *);
 
 	buildin = get_builtin(params);
-	if (buildin)
+	if (buildin)/*check if built in func*/
 	{
 		buildin(params);
 		return;
 	}
-	exeFile = get_file(params);
-	if (!exeFile)
+	executeFile = get_file(params);
+	/*check if file is present*/
+	if (!executeFile)
 	{
 		return;
 	}
 	pid = fork();
+	/*check for forking errors*/
 	if (pid < 0)
 	{
 		free_params(params);
@@ -34,12 +38,12 @@ void run_command(param_t *params)
 	}
 	else if (pid == 0)
 	{
-		execve(exeFile, params->args, NULL);
+		execve(executeFile, params->args, NULL);
 	}
 	else
 	{
 		wait(&params->status);
 		params->status = WEXITSTATUS(params->status);
-		free(exeFile);
+		free(executeFile);
 	}
 }

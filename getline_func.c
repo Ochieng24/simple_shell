@@ -15,48 +15,48 @@
  */
 char *rlLine(char **line, unsigned int oldSize, unsigned int newSize)
 {
-	char *newLine = NULL;
-	unsigned int i;
+	char *fresh_line = NULL;
+	unsigned int x;
 
-	newLine = malloc(newSize);
-	if (newLine)
+	fresh_line = malloc(newSize);
+	if (fresh_line)
 	{
-		for (i = 0; i < oldSize; i++)
-			newLine[i] = (*line)[i];
+		for (x = 0; x < oldSize; x++)
+			fresh_line[x] = (*line)[x];
 		free(*line);
-		*line = newLine;
+		*line = fresh_line;
 	}
-	return (newLine);
+	return (fresh_line);
 }
 /**
- * _getline - fetches a line of chars from stdin
+ * _getline - gets a line of chars from standard input
  * @params: parameters
  *
- * Return: number of char read
+ * Return: count of chars
  */
 int _getline(param_t *params)
 {
-	char *line = NULL;
+	char *lane = NULL;
 	static unsigned int bufSize = BUFFER_SIZE;
-	char *writeHead = line;
-	unsigned int len;
+	char *mod_head = lane;
+	unsigned int l;
 
-	line = malloc(BUFFER_SIZE);
+	lane = malloc(BUFFER_SIZE);
 	do {
-		len = read(0, writeHead, BUFFER_SIZE);
-		if (len == 0)
+		l = read(0, mod_head, BUFFER_SIZE);
+		if (l == 0)
 			break;
-		writeHead += len;
-		if (writeHead >= (line + BUFFER_SIZE - 1 - READ_SIZE))
+		mod_head += l;
+		if (mod_head >= (lane + BUFFER_SIZE - 1 - READ_SIZE))
 		{
-			line = rlLine(&line, bufSize, bufSize * 2);
+			lane = rlLine(&lane, bufSize, bufSize * 2);
 			bufSize *= 2;
 		}
-	} while (*(writeHead - 1) != '\n');
+	} while (*(mod_head - 1) != '\n');
 
 	free(params->buffer);
-	params->buffer = line;
-	if (len == 0)
+	params->buffer = lane;
+	if (l == 0)
 		return (-1);
 	return (_strlen(params->buffer));
 }
