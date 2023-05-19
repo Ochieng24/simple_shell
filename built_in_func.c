@@ -32,5 +32,5 @@ if (!_strcmp(params->args[0], trav->name))
 return (trav->func);/*return the associated func ptr if they match*/
 trav++;
 }
-return (NULL);
+return (NULL);/*return null if no match*/
 }
