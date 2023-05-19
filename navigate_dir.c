@@ -3,7 +3,7 @@
 #include "shell.h"
 #include "main.h"
 /**
- * _cd - change current working directory
+ * _cd - change curnt working directory
  * @params: shell parameters
  *
  * Return: void
