@@ -12,11 +12,11 @@
 char *_getenv(char *name, param_t *params)
 {
 list_t *pointing_list = params->env_head;
-while (pointing_list)
+while (pointing_list)/*iterates while 'pointing_list' is not NULL */
 {
 if (!_strcmp(name, pointing_list->str))
-return (_strdup(ptr->val));
-pointing_list = pointing_list->next;
+return (_strdup(ptr->val));/* Return a duplicated str */
+pointing_list = pointing_list->next;/* Move 'pointing_list' to the next node */
 }
-return (NULL);
+return (NULL);/*return NULL if no match*/
 }
