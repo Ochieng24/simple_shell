@@ -5,32 +5,26 @@
  * write_error - write error message to stderr
  * @params: parameters struct containing info about the command and program
  * @msg: error message to print
- *
- * This function takes a parameter struct containing information about current
- * command and program and an error message to print to stderr. The function
- * builds an error message string from the information in the parameter struct
- * and the error message, and writes it to stderr using the write system call.
  */
 void write_error(param_t *params, char *msg)
 {
-char errBuffer[1024] = {0};
-char *writeHead = errBuffer, *bufPtr = errBuffer;
-_strcpy(writeHead, params->argv[0]);
-writeHead = bufPtr + _strlen(bufPtr);
-_strcpy(writeHead, ": ");
-writeHead = bufPtr + _strlen(bufPtr);
-_strcpy(writeHead, get_number(params->lineCount));
-writeHead = bufPtr + _strlen(bufPtr);
-_strcpy(writeHead, ": ");
-writeHead = bufPtr + _strlen(bufPtr);
-_strcpy(writeHead, params->args[0]);
-writeHead = bufPtr + _strlen(bufPtr);
-_strcpy(writeHead, ": ");
-writeHead = bufPtr + _strlen(bufPtr);
-_strcpy(writeHead, msg);
-writeHead = bufPtr + _strlen(bufPtr);
-write(STDERR_FILENO, errBuffer, _strlen(bufPtr));
-
+char errors_Buffer[1024] = {0};/*array declaration to store error msg*/
+char *modify_Head = errors_Buffer, *bufferPtr = errors_Buffer;
+_strcpy(modify_Head, params->argv[0]);/*copy program name to error message*/
+modify_Head = bufferPtr + _strlen(bufferPtr);/*move ptr end program*/
+_strcpy(modify_Head, ": ");/*copy line count*/
+modify_Head = bufferPtr + _strlen(bufferPtr);
+_strcpy(modify_Head, get_number(params->lineCount));/*copy line count value*/
+modify_Head = bufferPtr + _strlen(bufferPtr);
+_strcpy(modify_Head, ": ");
+modify_Head = bufferPtr + _strlen(bufferPtr);
+_strcpy(modify_Head, params->args[0]);/*copy 1st arg of the command*/
+modify_Head = bufferPtr + _strlen(bufferPtr);
+_strcpy(modify_Head, ": ");
+modify_Head = bufferPtr + _strlen(bufferPtr);
+_strcpy(modify_Head, msg);/*copy error msg*/
+modify_Head = bufferPtr + _strlen(bufferPtr);
+write(STDERR_FILENO, errors_Buffer, _strlen(bufferPtr));/*write err to stderr*/
 }
 
 
