@@ -40,7 +40,7 @@ void _myExit(param_t *params)
 			write_error(params, "Illegal number: ");/* error msg to strd output*/
 			write(STDERR_FILENO, params->args[1],/*newline to strd output*/
 			      _strlen(params->args[1]));/*argument to  strd error output*/
-			write(STDERR_FILENO, "\n", 1);/*new line char to strd output*/ 
+			write(STDERR_FILENO, "\n", 1);/*new line char to strd output*/
 			params->point = 2;/*set 2*/
 			return;/*Return*/
 		}
