@@ -1,40 +1,36 @@
-#include <stdlib.h>
 #include <unistd.h>
+#include <stdlib.h>
 #include <sys/wait.h>
+#include "listing.h"
 #include "shell.h"
-#include "lists.h"
 #include "main.h"
 
 /**
  * get_builtin - Get built-in function
  * @params: Pointer to the param_t struct containing command parameters
- *
- * Description: Searches for a built-in function based on the first argument
- * in the param_t struct. Returns a function pointer to the corresponding
- * built-in function if found, or NULL if not found.
- *
  * Return: Function pointer to the built-in function. NULL if not found.
  */
 
-void (*get_builtin(param_t *params))(param_t *)
+void (*get_builtin(param_t *params))(param_t *)/*func definition*/
 {
-op_t ops[] = {
-{"exit", _myExit},
+op_t options[] = {
 {"clear", _clear},
-{"env", _printenv},
 {"setenv", _setenv},
+{"exit", _myExit},
 {"cd", _cd},
 {"unsetenv", _unsetenv},
 {"alias", _alias},
+{"env", _printenv},
 {NULL, NULL},
 };
-op_t *op = ops;
+/*Decl to ptr var op and initialization to poin first element of array*/
+op_t *trav = options;/*traverses arr and compares name of each element*/
 
-while (op->name)
+while (trav->name)
 {
-if (!_strcmp(params->args[0], op->name))
-return (op->func);
-op++;
+if (!_strcmp(params->args[0], trav->name))
+return (trav->func);/*return the associated func ptr if they match*/
+trav++;
 }
 return (NULL);
 }
