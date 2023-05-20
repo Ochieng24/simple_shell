@@ -10,30 +10,36 @@
  */
 char **_realloc(char **ptr, unsigned int old_size, unsigned int new_size)
 {
-	char **newPtr = NULL;
-	unsigned int num, i;
+	char **newpointer = NULL;
+	unsigned int number, x;
 
 	if (!ptr)
 	{
 		free(ptr);
 		return (malloc(sizeof(*ptr) * new_size));
 	}
+	/*Check if new_size is 0*/
 	else if (new_size == 0)
 	{
 		free(ptr);
 		return (NULL);
 	}
+	/* Check if new_size is equal to old_size*/
 	if (new_size == old_size)
 		return (ptr);
-	num = old_size < new_size ? old_size : new_size;
-	newPtr = malloc(8 * new_size);
-	if (newPtr)
+	/*Determine the number of elements to copy*/
+	number = old_size < new_size ? old_size : new_size;
+	/*Allocate memory for newPtr*/
+	newpointer = malloc(8 * new_size);
+	/*Copy elements from ptr to newPtr*/
+	if (newpointer)
 	{
-		for (i = 0; i < new_size; i++)
-			newPtr[i] = NULL;
-		for (i = 0; i < num; i++)
-			newPtr[i] = ptr[i];
+	/* Initialize newPtr elements to NULL*/
+		for (x = 0; x < new_size; x++)
+			newpointer[x] = NULL;
+		for (x = 0; x < number; x++)
+			newpointer[x] = ptr[x];
 		free(ptr);
 	}
-	return (newPtr);
+	return (newpointer);
 }
