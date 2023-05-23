@@ -28,8 +28,8 @@ int isDelim(char c, char *delim)
  */
 char *_strtok(char *str, char *delim, char **savePtr)
 {
-	char *ptr, *modifier, *end;
-	int quoteFound = 0;
+	char *ptr, *mod, *end;
+	int qF = 0;
 
 	if (*savePtr)
 		ptr = *savePtr;
@@ -40,36 +40,36 @@ char *_strtok(char *str, char *delim, char **savePtr)
 		end++;
 	while (*ptr && isDelim(*ptr, delim))
 		ptr++;
-	modifier = ptr;
+	mod = ptr;
 	if (*ptr == '\0')
 	{
-		return (NULL);
+	return (NULL);
 	}
 	if (*ptr == '\'')
 	{
 		ptr++;
-		modifier = _strchr(ptr, '\'');
-		if (!modifier)
+		mod = _strchr(ptr, '\'');
+		if (!mod)
 		{
 			_printf("no matching quote found!\n");
 			exit(-1);
 		}
-		*modifier = '\0';
-		*savePtr = modifier + 1;
+		*mod = '\0';
+		*savePtr = mod + 1;
 		return (_strdup(ptr));
 	}
-	while (*modifier)
+	while (*mod)
 	{
-		if (*modifier == '\'')
-			quoteFound = 1;
-		if (isDelim(*modifier, delim) && quoteFound == 0)
-			break;
-		modifier++;
+		if (*mod == '\'')
+			qF = 1;
+	if (isDelim(*mod, delim) && qF == 0)
+	break;
+		mod++;
 	}
-	if (*modifier == '\0')
-		*savePtri = modifier;
-	else
-		*savePtr = modifier + 1;
-	*modifier = '\0';
-	return (_strdup(ptr));
+	if (*mod == '\0')
+	*savePtri = mod;
+else
+*savePtr = mod + 1;
+*mod = '\0';
+return (_strdup(ptr));
 }

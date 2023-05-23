@@ -5,6 +5,5 @@
  */
 void sigint_handler(int __attribute__((unused)) s)
 {
-	write(1, "\n($) ", 5);
+	write(1, "\n($) ", 5);/* Write "\n($)" to standard output*/
 }
-
