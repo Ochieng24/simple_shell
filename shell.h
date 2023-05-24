@@ -4,18 +4,19 @@
 #include "listing.h"
 #include <stdio.h>
 /**
- * struct param_s: The necessary shell variables are stored in the structure.
- * @argv: Command-line argument from the main function
- * @args: An array of arguments
+ * struct param_s - structure used to hold all shell variables needed
+ * @argv: command line argument from main function
  * @buffer: input buffer
- * @nextCommand: The subsequent command to be processed.
- * @lineCount: overall number of input lines
- * @argsCap: maximum number of arguments the args array can contain
- * @status: Run commands should return status
- * @tokCount: Number of tokens in a single line of input
+ * @args: array of arguments
+ * @nextCommand: the next command to process
+ * @argsCap: num of arguments the args array can hold
+ * @lineCount: total line of input
+ * @tokCount: num of tokens in a line input
+ * @status: run command return status
+ * @env_head: singly linked list of environment vars
  * @alias_head: singly linked list of aliases
- * @env_head: singly linked array of environment variable
- * Description: stores vares supplied into other funcs
+ * Description: This structures hold all variables that passed into
+ * other functions.
  */
 typedef struct param_s
 {
