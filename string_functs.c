@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include "main.h"
+#include "listing.h"
 /**
  *str_concat - joins two strs
  *@s1: first str param

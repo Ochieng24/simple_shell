@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "shell.h"
 #include "main.h"
-#include "lists.h"
+#include "listing.h"
 
 /**
  * print_alias - prints the value of an alias, if it exists

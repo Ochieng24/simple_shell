@@ -1,6 +1,7 @@
 #include <unistd.h>
 #include "shell.h"
 #include "main.h"
+#include "listing.h"
 /**
  * write_error - write error message to stderr
  * @params: parameters struct containing info about the command and program

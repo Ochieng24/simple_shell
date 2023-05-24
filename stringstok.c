@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "shell.h"
 #include "main.h"
+#include "listing.h"
 /**
  * isDelim - check if a character is one of the delimiters
  * @c: character

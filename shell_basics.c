@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 #include <stdlib.h>
 #include <unistd.h>
+#include "listing.h"
 #include <signal.h>
 #include "shell.h"
 #include "main.h" /* for _printf */

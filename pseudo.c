@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "shell.h"
 #include "main.h"
-#include "lists.h"
+#include "listing.h"
 /**
  * _alias - Implements the "alias" shell command.
  * @params: Pointer to a param_t struct with the shell state and args.

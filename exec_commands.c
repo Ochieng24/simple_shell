@@ -4,7 +4,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include "shell.h"
-#include "lists.h"
+#include "listing.h"
 #include "main.h"
 /**
  * run_command - searches path dirs for command and execs

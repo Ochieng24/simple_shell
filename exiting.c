@@ -2,6 +2,7 @@
 #include <limits.h>
 #include "shell.h"
 #include "main.h"
+#include "listing.h"
 /**
  * validNum - check if string is a valid number
  * @s: string

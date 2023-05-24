@@ -3,6 +3,7 @@
 #include <errno.h>
 #include "main.h"
 #include "shell.h"
+#include "listing.h"
 /**
  * get_file - Retrieve command file path
  * @params: params

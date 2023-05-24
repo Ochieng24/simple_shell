@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "shell.h"
 #include "main.h"
-#include "lists.h"
+#include "listing.h"
 
 /**
  * _setenv - function searches the environment list to find the

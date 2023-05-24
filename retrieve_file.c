@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include "listing.h"
 /**
  * move_left -removes leading 0's
  * @a: buffer
