@@ -4,24 +4,24 @@
 #include "shell.h"
 #include "main.h"
 /**
- * _strcpy - copies a string to anther memory adress
- * @src: pointer to the source string
- * @dest: pointer to the dest address
+ * _strcpy - copies str  to anther memory
+ * @src: * to source str
+ * @dest: * to the dest address
  *
  * Return: pointer to the dest
  */
 char *_strcpy(char *dest, const char *src)
 {
-	int i;
+	int x;
 
-	i = 0;
-	while (src[i] != '\0')
+	x = 0;
+	while (src[x] != '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		des[x] = src[x];
+		x++;
 	}
-	if (src[i] == '\n')
-		dest[i] = '\n';
+	if (src[x] == '\n')
+		dest[x] = '\n';
 	return (dest);
 }
 
@@ -35,66 +35,66 @@ char *_strcpy(char *dest, const char *src)
  */
 int _strcmp(char *s1, char *s2)
 {
-	int res = 0;
+	int result = 0;
 
 	do {
-		res = *s1 - *s2;
+		result = *s1 - *s2;
 		if (*s1 == 0 || *s2 == 0)
 			break;
 		s1++;
 		s2++;
-	} while (res == 0);
+	} while (result == 0);
 
-	return (res);
+	return (result);
 }
 
 /**
- * _strcmp_n - compares n bytes of two strings
- * @s1: string 1
- * @s2: string 2
- * @n: number of bytes to comp
+ * _strcmp_n - compares n bytes of 2 strs
+ * @s1: str 1
+ * @s2: str 2
+ * @n: num of bytes to comp
  *
  * Return: int less than, equal to, or greater than 0 if s1 is, respectively
  * less than, equal to, or greater than s2
  */
 int _strcmp_n(char *s1, char *s2, int n)
 {
-	int i = 0, res = *s1 - *s2;
+	int x = 0, result = *s1 - *s2;
 
-	while (i <= n)
+	while (x <= n)
 	{
-		res = *(s1++) - *(s2++);
-		if (res != 0)
+		result = *(s1++) - *(s2++);
+		if (result != 0)
 			break;
-		i++;
+		x++;
 	}
 
-	return (res);
+	return (result);
 }
 
 
 /**
  * _atoi - turn a str into an int
  * @s: string to eval
- * Return: n the value of the first number in the st0ring
+ * Return: n the val of first num in the str
  */
 int _atoi(char *s)
 {
-	int n, tmp, len, mul = 1;
+	int num, temp, l, mult = 1;
 
-	n = 0;
-	tmp = 0;
+	num = 0;
+	temp = 0;
 
-	len = _strlen(s);
-	len--;
-	while (len >= 0)
+	l = _strlen(s);
+	l--;
+	while (l >= 0)
 	{
-		tmp = n;
-		n = n + (s[len] - '0') * mul;
-		if (n < tmp || n > INT_MAX)
+		temp = num;
+		num = num + (s[l] - '0') * mult;
+		if (num < temp || num > INT_MAX)
 			return (-1);
-		len--;
-		mul *= 10;
+		l--;
+		mult *= 10;
 	}
-	return (n);
+	return (num);
 }
