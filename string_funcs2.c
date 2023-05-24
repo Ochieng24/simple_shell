@@ -13,6 +13,7 @@
 char *_strcpy(char *dest, const char *src)
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	int x;
 
 	x = 0;
@@ -25,6 +26,8 @@ char *_strcpy(char *dest, const char *src)
 		dest[x] = '\n';
 	return (dest);/*Returns the destination string*/
 =======
+=======
+>>>>>>> origin
 	int a;
 
 	a = 0;
@@ -36,7 +39,23 @@ char *_strcpy(char *dest, const char *src)
 	if (src[a] == '\n')
 		dest[a] = '\n';
 	return (dest);
+<<<<<<< HEAD
 >>>>>>> bd80c0c9515f958508f16b8b7078b3f9883bce0a
+=======
+=======
+	int x;
+
+	x = 0;
+	while (src[x] != '\0')
+	{
+		dest[x] = src[x];/*Copies each character from src to dest*/
+		x++;
+	}
+	if (src[x] == '\n')/*If last char of src is a newline, copy to dest*/
+		dest[x] = '\n';
+	return (dest);/*Returns the destination string*/
+>>>>>>> origin/master
+>>>>>>> origin
 }
 
 /**
@@ -74,6 +93,7 @@ int _strcmp(char *s1, char *s2)
 int _strcmp_n(char *s1, char *s2, int n)
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	int x = 0, result = *s1 - *s2;
 
 	while (x <= n)
@@ -82,15 +102,32 @@ int _strcmp_n(char *s1, char *s2, int n)
 
 	while (a <= n)
 >>>>>>> bd80c0c9515f958508f16b8b7078b3f9883bce0a
+=======
+	int a = 0, res = *s1 - *s2;
+
+	while (a <= n)
+=======
+	int x = 0, result = *s1 - *s2;
+
+	while (x <= n)
+>>>>>>> origin/master
+>>>>>>> origin
 	{
 		result = *(s1++) - *(s2++);/*Calculates diff btw char of s1 and s2*/
 		if (result != 0)/*If characters differ, break the loop*/
 			break;
 <<<<<<< HEAD
+<<<<<<< HEAD
 		x++;
 =======
 		a++;
 >>>>>>> bd80c0c9515f958508f16b8b7078b3f9883bce0a
+=======
+		a++;
+=======
+		x++;
+>>>>>>> origin/master
+>>>>>>> origin
 	}
 
 	return (result);/*Returns diff btw the char or 0 if the str are equal*/
