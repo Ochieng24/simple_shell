@@ -51,6 +51,7 @@ while (token)
 {
 token = _strtok(params->nextCommand, " \n\t", &state);
 (params->args)[(params->tokCount)++] = token;
+/*Check if argument array needs to be reallocated*/
 if (params->tokCount == params->argsCap)
 {
 params->argsCap += 10;
