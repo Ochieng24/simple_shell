@@ -1,53 +1,53 @@
 #include <stdlib.h>
 /**
- *str_concat - joins two strings together.
- *@s1: first string parameter
- *@s2: Second string parameter
- *Return: zero when unsuccessful,else, malloc ptr
+ *str_concat - joins two strs
+ *@s1: first str param
+ *@s2: Second str param
+ *Return: 0 when unsuccessful,else, malloc ptr
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *ptr;
-	int i = 0;
-	int j = 0;
-	int x = 0;
+	char *points;
+	int a = 0;
+	int z = 0;
+	int w = 0;
 
-	if (s1 == NULL)
+	if (s1 == NULL)/*checks if input is NULL*/
 	{
-		s1 = "";
+		s1 = "";/*assign empty str to S1 if S1 is null*/
 	}
 	if (s2 == NULL)
 	{
 		s2 = "";
 	}
-	while (s1[i] != '\0')
+	while (s1[a] != '\0')/*iterate thru char of S1 till null char is reached*/
 	{
-		i++;
+		a++;/*increment value of a*/
 	}
-	while (s2[j] != '\0')
+	while (s2[z] != '\0')
 	{
-		j++;
+		z++;
 	}
-	ptr = malloc((i * sizeof(char)) + (j * sizeof(char)) + 1);
-	if (ptr == NULL)
+	points = malloc((a * sizeof(char)) + (z * sizeof(char)) + 1);
+	if (points == NULL)/*checks if allocation isnt successful*/
 	{
-		return (NULL);
+		return (NULL);/*indicate failure*/
 	}
-	for (i = 0; s1[i] != '\0'; i++)
+	for (a = 0; s1[a] != '\0'; a++)/*copies char from S1 to concatenated str*/
 	{
-		ptr[i] = s1[i];
-		x++;
+		points[a] = s1[a];/*copy char from S1 to points*/
+		w++;
 	}
-	for (j = 0; s2[j] != '\0'; j++)
+	for (z = 0; s2[z] != '\0'; z++)/*copy char from s2 to conc str*/
 	{
-		ptr[x] = s2[j];
-		x++;
+		points[w] = s2[z];
+		w++;
 	}
-	ptr[x] = '\0';
-	return (ptr);
+	points[w] = '\0';/*appends null char at the end of concatebated str*/
+	return (points);
 }
 /**
- * string_nconcat - concatenates two strings
+ * string_nconcat - concat 2 strs
  * @s1: first string param
  * @s2: second string param
  * @n: amount of bytes for s2
@@ -55,90 +55,91 @@ char *str_concat(char *s1, char *s2)
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *ptr;
-	unsigned int i = 0;
-	unsigned int j = 0;
+	char *points;
+	unsigned int a = 0;
+	unsigned int z = 0;
 
-	if (s1 == NULL)
+	if (s1 == NULL)/*checks if input str is null*/
 	{
 		s1 = "";
 	}
-	if (s2 == NULL)
+	if (s2 == NULL)/*checks if s2 is null*/
 	{
 		s2 = "";
 	}
-	while (s1[i] != '\0')
+	while (s1[a] != '\0')/*iterates thru S1 char till null char is enc*/
 	{
-		i++;
+		a++;
 	}
-	while (s2[j] != '\0')
+	while (s2[z] != '\0')/*iterate thru char of s1 till null char is reached*/
 	{
-		j++;
+		z++;
 	}
-	if (n > j)
+	if (n > z)
 	{
-		n = j;
+		n = z;
 	}
-	ptr = malloc(sizeof(char) * (n + i) + 1);
-	if (ptr == NULL)
+	points = malloc(sizeof(char) * (n + a) + 1);/*alloc mem for concat str*/
+	if (points == NULL)
 	{
 		return (NULL);
 	}
-	for (i = 0; s1[i] != '\0'; i++)
+	for (a = 0; s1[a] != '\0'; a++)/*copy char from s1 to concatenated str*/
 	{
-		ptr[i] = s1[i];
+		points[a] = s1[a];
 	}
-	for (j = 0; j < n; j++)
+	for (z = 0; z < n; z++)
 	{
-		ptr[i + j] = s2[j];
+		points[a + z] = s2[z];/*copy char fronm s2 to points*/
 	}
-	ptr[i + j] = '\0';
-	return (ptr);
+	points[a + z] = '\0';/*appends null char at end of concatenated str*/
+	return (points);
 }
 /**
- *_strlen - returns the length of a string
+ *_strlen - return len of a str
  *@s: string
- *Return: 0 if null, else length without null byte
+ *Return: 0 if null, else len without null byte
  */
 int _strlen(char *s)
 {
-	int length = 0;
+	int l = 0;
 
-	if (s == NULL)
+	if (s == NULL)/*checks if S is NULL*/
 	{
-		return (0);
+		return (0);/*if s is empty ret 0 to indicate empty*/
 	}
 
-	for (length = 0; s[length] != '\0'; length++)
-		;
-	return (length);
+	for (l = 0; s[l] != '\0'; l++)/*Iter thru char of s till a null char is got*/
+		;/*Empty loop body,incre the val of "l" to count the char*/
+	return (l);
 }
 
 /**
- * _strdup - copy a string to a new allocated block of memory
+ * _strdup - copy str to a new alloc block of memory
  * @str: string
  *
- * Return: pointer to duplicated string, NULL if insufficient memory
+ * Return: * to duplicated str, NULL if insufficient memory
  */
 char *_strdup(char *str)
 {
-	int len = 0; /* index of terminating null byte */
-	char *ptr = NULL;
+	int l = 0; /* index of terminating null byte */
+	char *points = NULL;/*Decl a * to char named "points" and init it to NULL.
+			      */
 
 	if (!str)
 		return (NULL);
-	while (*str)
+	while (*str)/*Iterates thru char of str till a null char is encountered.*/
 	{
-		len++;
-		str++;
+		l++;/*Increments the value of "l" to move to the next character.*/
+		str++;/*Increments the pointer to str to move to the next character.*/
 	}
-	ptr = (char *) malloc(sizeof(char) * (len + 1));
-	if (ptr)
+	points = (char *) malloc(sizeof(char) * (l + 1));/*Alloc mem for dupl*/
+	if (points)
 	{
-		while (len >= 0)
-			*(ptr + len--) = *(str--);
+		while (l >= 0)
+			*(points + l--) = *(str--);/*Copy char from str in reverse order.*/
 	}
-	return (ptr);
+	return (points);
 }
 
 /**
@@ -150,17 +151,18 @@ char *_strdup(char *str)
  */
 char *_strchr(char *s, char c)
 {
-	int i;
+	int a;
 
-	i = 0;
-	while (s[i] != '\0')
+	a = 0;
+	while (s[a] != '\0')
 	{
-		if (s[i] == c)
-			return (&s[i]);
-		i++;
+		if (s[a] == c)/*Checks if the current character is equal to c.*/
+			return (&s[a]);/*If found, returns a pointer to the current character.*/
+		a++;
 	}
 	if (c == '\0')
-		return (&s[i]);
-	return (0);
+		return (&s[a]);
+	return (0);/* If c is not found and not a null character, returns NULL.
+		     */
 }
 

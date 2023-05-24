@@ -3,60 +3,60 @@
  * move_left -removes leading 0's
  * @a: buffer
  * @size: size of array
- * @num: number of digits in the binary number
+ * @num: no of digits in binary num
  * Return: buffer
  */
 char *move_left(char *a, int size, int num)
 {
-int i;
-char *ptr;
+int x;
+char *points;
 
-for (i = 0, ptr = (a + size - num); i < num; i++, ptr++)
-*(a + i) = *ptr;
-*(a + num) = '\0';
+for (x = 0, points = (a + size - num); x < num; x++, points++)
+*(a + x) = *points;/*move each character to the left*/
+*(a + num) = '\0';/*Terminate the string with null character*/
 return (a);
 }
 /**
- * get_binary - converts an unsigned int to binary
+ * get_binary - converts unsigned int to binary
  * @n: integer
- * Return: pointer to binary
+ * Return: * to binary
  */
 char *get_binary(unsigned int n)
 {
-char *ptr = NULL;
-unsigned int i, num = 0, size = 0;
+char *points = NULL;
+unsigned int x, nummer = 0, dimension = 0;
 
 if (n == 0)
 {
-ptr = malloc(2);
-if (ptr)
+points = malloc(2);/*allocate nmemory for 0 and Null char*/
+if (points)
 {
-ptr[0] = '0';
-ptr[1] = '\0';
+points[0] = '0';/*store 0 in the buffer*/
+points[1] = '\0';/*terminate the string with null char*/
 }
-return (ptr);
+return (points);
 }
-size = sizeof(int) * 8 + 1;
-ptr = malloc(size);
-if (ptr)
+dimension = sizeof(int) * 8 + 1;/*calc dimension required for binary rep*/
+points = malloc(size);
+if (points)
 {
-for (i = 0; i < size; i++)
+for (x = 0; x < dimension; x++)
 {
-ptr[i] = '0';
+points[x] = '0';/*initialises each bit as '0'*/
 }
-ptr[size - 1] = '\0';
-i = size - 2;
+points[dimension - 1] = '\0';/*terminate the string with null character*/
+x = dimension - 2;
 while (n != 0)
 {
-ptr[i] = n % 2 == 0 ? '0' : '1';
-num++;
+points[x] = n % 2 == 0 ? '0' : '1';/*converts rem of n/2 into a 1 or 0*/
+nummer++;
 n = n / 2;
-i--;
+x--;
 }
-num++;
-ptr = move_left(ptr, size, num);
+nummer++;
+points = move_left(points, dimension, nummer);/*remov lead 0s from binary rep*/
 }
-return (ptr);
+return (points);
 }
 /**
  * get_char - returns a copied char
@@ -65,16 +65,16 @@ return (ptr);
  */
 char *get_char(char c)
 {
-char *ptr = NULL;
+char *points = NULL;
 
-ptr = malloc(2);
-if (ptr == NULL)
+points = malloc(2);/*allocate memory for the char and null char*/
+if (points == NULL)
 {
 return (NULL);
 }
-ptr[0] = c;
-ptr[1] = '\0';
-return (ptr);
+points[0] = c;/*store the char in the buffer*/
+points[1] = '\0';/*terminate the string with null char*/
+return (points);
 }
 /**
  * get_string - returns a new duplicated string
@@ -83,38 +83,38 @@ return (ptr);
  */
 char *get_string(char *s)
 {
-char *ptr = NULL;
-int i, j;
+char *points = NULL;
+int x, z;
 
 if (s == NULL)
 {
-ptr = malloc(7);
-if (ptr == NULL)
+points = malloc(7);/*allocate memory for null and null char*/
+if (points == NULL)
 return (NULL);
-ptr[0] = '(';
-ptr[1] = 'n';
-ptr[2] = 'u';
-ptr[3] = 'l';
-ptr[4] = 'l';
-ptr[5] = ')';
-ptr[6] = '\0';
-return (ptr);
+points[0] = '(';
+points[1] = 'n';
+points[2] = 'u';
+points[3] = 'l';
+points[4] = 'l';
+points[5] = ')';
+points[6] = '\0';/*terminate the str with null char*/
+return (points);
 }
-for (i = 0; s[i] != '\0'; i++)
+for (x = 0; s[x] != '\0'; x++)
 {
 ;
 }
-ptr = (char *)malloc(i *sizeof(char) + 1);
-if (ptr == NULL)
+points = (char *)malloc(x *sizeof(char) + 1);
+if (points == NULL)
 {
 return (NULL);
 }
-for (j = 0; j < i; j++)
+for (z = 0; z < x; z++)
 {
-ptr[j] = s[j];
+points[z] = s[z];/*copy @ char from original strto new str*/
 }
-ptr[j] = '\0';
-return (ptr);
+points[z] = '\0';
+return (points);
 }
 /**
  * get_number - put integer into a memory block as string
@@ -124,36 +124,36 @@ return (ptr);
  */
 char *get_number(int n)
 {
-int i, len = 0, tmp;
-char *buf = NULL;
+int x, l = 0, temporary;
+char *buf_size = NULL;
 /* find number bytes to allocate */
-tmp = n;
-while (tmp >= 10 || tmp <= -10)
+temporary = n;
+while (temporary >= 10 || temporary <= -10)
 {
-tmp /= 10;
-len++;
+temporary /= 10;
+l++;
 }
-len++;
+l++;
 if (n < 0)
-len++;
-buf = malloc(sizeof(char) * (len + 1));
-if (buf)
+l++;
+buf_size = malloc(sizeof(char) * (l + 1));/*allocate memory for str rep of no*/
+if (buf_size)
 {
-buf[len] = '\0';
+buf[l] = '\0';/*terminate the str with null char*/
 if (n < 0)
 {
-buf[0] = '-';
+buf_size[0] = '-';/*store neg sign in buffer*/
 }
-i = len - 1;
+x = l - 1;
 while (n >= 10 || n <= -10)
 {
-tmp = (n % 10) >= 0 ? n % 10 : -(n % 10);
-buf[i] = tmp + '0';
-i--;
+temporary = (n % 10) >= 0 ? n % 10 : -(n % 10);/*store last digit in buffer*/
+buf_size[x] = temporary + '0';
+x--;
 n /= 10;
 }
-tmp = (n % 10) >= 0 ? n % 10 : -(n % 10);
-buf[i] = tmp + '0';
+temporary = (n % 10) >= 0 ? n % 10 : -(n % 10);
+buf_size[x] = temporary + '0';
 }
-return (buf);
+return (buf_size);
 }

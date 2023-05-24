@@ -4,14 +4,15 @@
 #include "shell.h"
 #include "main.h"
 /**
- * _strcpy - copies a string to anther memory adress
- * @src: pointer to the source string
- * @dest: pointer to the dest address
+ * _strcpy - copies str  to anther memory
+ * @src: * to source str
+ * @dest: * to the dest address
  *
  * Return: pointer to the dest
  */
 char *_strcpy(char *dest, const char *src)
 {
+<<<<<<< HEAD
 	int a;
 
 	a = 0;
@@ -23,6 +24,19 @@ char *_strcpy(char *dest, const char *src)
 	if (src[a] == '\n')
 		dest[a] = '\n';
 	return (dest);
+=======
+	int x;
+
+	x = 0;
+	while (src[x] != '\0')
+	{
+		dest[x] = src[x];/*Copies each character from src to dest*/
+		x++;
+	}
+	if (src[x] == '\n')/*If last char of src is a newline, copy to dest*/
+		dest[x] = '\n';
+	return (dest);/*Returns the destination string*/
+>>>>>>> origin/master
 }
 
 /**
@@ -35,66 +49,76 @@ char *_strcpy(char *dest, const char *src)
  */
 int _strcmp(char *s1, char *s2)
 {
-	int res = 0;
+	int result = 0;
 
 	do {
-		res = *s1 - *s2;
-		if (*s1 == 0 || *s2 == 0)
+		result = *s1 - *s2;/*Calculates diff btw the char of s1 and s2*/
+		if (*s1 == 0 || *s2 == 0)/*If either string ends, break the loop*/
 			break;
 		s1++;
 		s2++;
-	} while (res == 0);
+	} while (result == 0);
 
-	return (res);
+	return (result);/*Returns diff btw the char or 0 if the str are equal*/
 }
 
 /**
- * _strcmp_n - compares n bytes of two strings
- * @s1: string 1
- * @s2: string 2
- * @n: number of bytes to comp
+ * _strcmp_n - compares n bytes of 2 strs
+ * @s1: str 1
+ * @s2: str 2
+ * @n: num of bytes to comp
  *
  * Return: int less than, equal to, or greater than 0 if s1 is, respectively
  * less than, equal to, or greater than s2
  */
 int _strcmp_n(char *s1, char *s2, int n)
 {
+<<<<<<< HEAD
 	int a = 0, res = *s1 - *s2;
 
 	while (a <= n)
+=======
+	int x = 0, result = *s1 - *s2;
+
+	while (x <= n)
+>>>>>>> origin/master
 	{
-		res = *(s1++) - *(s2++);
-		if (res != 0)
+		result = *(s1++) - *(s2++);/*Calculates diff btw char of s1 and s2*/
+		if (result != 0)/*If characters differ, break the loop*/
 			break;
+<<<<<<< HEAD
 		a++;
+=======
+		x++;
+>>>>>>> origin/master
 	}
 
-	return (res);
+	return (result);/*Returns diff btw the char or 0 if the str are equal*/
 }
 
 
 /**
  * _atoi - turn a str into an int
  * @s: string to eval
- * Return: n the value of the first number in the st0ring
+ * Return: n the val of first num in the str
  */
 int _atoi(char *s)
 {
-	int n, tmp, len, mul = 1;
+	int num, temp, l, mult = 1;
 
-	n = 0;
-	tmp = 0;
+	num = 0;
+	temp = 0;
 
-	len = _strlen(s);
-	len--;
-	while (len >= 0)
+	l = _strlen(s);/*Calls a function _strlen to get the length of the string*/
+	l--;
+	while (l >= 0)
 	{
-		tmp = n;
-		n = n + (s[len] - '0') * mul;
-		if (n < tmp || n > INT_MAX)
-			return (-1);
-		len--;
-		mul *= 10;
+		temp = num;
+		num = num + (s[l] - '0') * mult;/*Converts char to int & adds it to num*/
+		if (num < temp || num > INT_MAX)
+			return (-1);/*Returns -1 if overflow or underflow occurs*/
+		l--;
+		mult *= 10;/*Multiplies mult by 10 to move to the next digit*/
 	}
-	return (n);
+	return (num);/*Returns the converted integer value*/
 }
