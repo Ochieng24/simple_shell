@@ -35,8 +35,8 @@ void print_alias(char *name, param_t *params)
 */
 void print_all_aliases(param_t *params)
 {
-	print_list_alias(params->alias_head);
-	params->status = 0;
+	print_list_alias(params->alias_head);/*call func to print alias*/
+	params->status = 0;/*Update the status in params*/
 }
 
 /**
@@ -50,8 +50,8 @@ void print_list_alias(list_t *head)
 {
 	if (head)
 	{
-		print_list_alias(head->next);
-		if (head->str != NULL)
-			_printf("%s=\'%s\'\n", head->str, head->val);
+		print_list_alias(head->next);/*call func withe next node*/
+		if (head->str != NULL)/*Check if head->str is not NULL*/
+			_printf("%s=\'%s\'\n", head->str, head->val);/*Print formatted str*/
 	}
 }
