@@ -13,8 +13,8 @@
 */
 void print_alias(char *name, param_t *params)
 {
-	unsigned int len = 0;
-	list_t *ptr = params->alias_head;
+	unsigned int len = 0;/* Variable to store the length of the name*/
+	list_t *ptr = params->alias_head;/*Pointer to traverse the alias list*/
 
 	len = _strlen(name);
 	while (ptr)

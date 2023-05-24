@@ -15,17 +15,17 @@ char **_realloc(char **ptr, unsigned int old_size, unsigned int new_size)
 
 	if (!ptr)
 	{
-		free(ptr);
+		free(ptr);/* Free the old pointer before allocating a new one */
 		return (malloc(sizeof(*ptr) * new_size));
 	}
 	/*Check if new_size is 0*/
 	else if (new_size == 0)
 	{
-		free(ptr);
+		free(ptr);/* Free the old pointer if new size is 0 */
 		return (NULL);
 	}
 	/* Check if new_size is equal to old_size*/
-	if (new_size == old_size)
+	if (new_size == old_size)/* Check if new size is equal to old size */
 		return (ptr);
 	/*Determine the number of elements to copy*/
 	number = old_size < new_size ? old_size : new_size;

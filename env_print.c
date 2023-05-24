@@ -18,8 +18,8 @@ params->args[1]);
 params->status = 2;/*status to indicate error*/
 return;
 }
-print_list_env(params->env_head);
-params->status = 0;
+print_list_env(params->env_head);/*prints environment variables*/
+params->status = 0;/*indicates succes*/
 }
 /**
  * print_list_env - print the environment variables
