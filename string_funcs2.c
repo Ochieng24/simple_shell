@@ -12,16 +12,16 @@
  */
 char *_strcpy(char *dest, const char *src)
 {
-	int i;
+	int a;
 
-	i = 0;
-	while (src[i] != '\0')
+	a = 0;
+	while (src[a] != '\0')
 	{
-		dest[i] = src[i];
-		i++;
+		dest[a] = src[a];
+		a++;
 	}
-	if (src[i] == '\n')
-		dest[i] = '\n';
+	if (src[a] == '\n')
+		dest[a] = '\n';
 	return (dest);
 }
 
@@ -59,14 +59,14 @@ int _strcmp(char *s1, char *s2)
  */
 int _strcmp_n(char *s1, char *s2, int n)
 {
-	int i = 0, res = *s1 - *s2;
+	int a = 0, res = *s1 - *s2;
 
-	while (i <= n)
+	while (a <= n)
 	{
 		res = *(s1++) - *(s2++);
 		if (res != 0)
 			break;
-		i++;
+		a++;
 	}
 
 	return (res);

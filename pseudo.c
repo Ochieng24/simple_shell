@@ -93,6 +93,7 @@ list_t *h = params->alias_head;
 
 while (h)
 {
+ /* If called with no args, print all existing aliases. */
 if (!_strcmp(name, h->str))
 {
 free(h->val);
