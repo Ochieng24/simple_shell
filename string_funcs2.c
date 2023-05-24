@@ -17,12 +17,12 @@ char *_strcpy(char *dest, const char *src)
 	x = 0;
 	while (src[x] != '\0')
 	{
-		des[x] = src[x];
+		dest[x] = src[x];/*Copies each character from src to dest*/
 		x++;
 	}
-	if (src[x] == '\n')
+	if (src[x] == '\n')/*If last char of src is a newline, copy to dest*/
 		dest[x] = '\n';
-	return (dest);
+	return (dest);/*Returns the destination string*/
 }
 
 /**
@@ -38,14 +38,14 @@ int _strcmp(char *s1, char *s2)
 	int result = 0;
 
 	do {
-		result = *s1 - *s2;
-		if (*s1 == 0 || *s2 == 0)
+		result = *s1 - *s2;/*Calculates diff btw the char of s1 and s2*/
+		if (*s1 == 0 || *s2 == 0)/*If either string ends, break the loop*/
 			break;
 		s1++;
 		s2++;
 	} while (result == 0);
 
-	return (result);
+	return (result);/*Returns diff btw the char or 0 if the str are equal*/
 }
 
 /**
@@ -63,13 +63,13 @@ int _strcmp_n(char *s1, char *s2, int n)
 
 	while (x <= n)
 	{
-		result = *(s1++) - *(s2++);
-		if (result != 0)
+		result = *(s1++) - *(s2++);/*Calculates diff btw char of s1 and s2*/
+		if (result != 0)/*If characters differ, break the loop*/
 			break;
 		x++;
 	}
 
-	return (result);
+	return (result);/*Returns diff btw the char or 0 if the str are equal*/
 }
 
 
@@ -85,16 +85,16 @@ int _atoi(char *s)
 	num = 0;
 	temp = 0;
 
-	l = _strlen(s);
+	l = _strlen(s);/*Calls a function _strlen to get the length of the string*/
 	l--;
 	while (l >= 0)
 	{
 		temp = num;
-		num = num + (s[l] - '0') * mult;
+		num = num + (s[l] - '0') * mult;/*Converts char to int & adds it to num*/
 		if (num < temp || num > INT_MAX)
-			return (-1);
+			return (-1);/*Returns -1 if overflow or underflow occurs*/
 		l--;
-		mult *= 10;
+		mult *= 10;/*Multiplies mult by 10 to move to the next digit*/
 	}
-	return (num);
+	return (num);/*Returns the converted integer value*/
 }
