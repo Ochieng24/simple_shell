@@ -115,8 +115,9 @@ int _printf(const char *format, ...)
 int flush_buffer(char *buffer, int *index)
 {
 	int num = 0;
-
+        /* Print the buffer contents */
 	num = write(1, buffer, *index);
+	/* Reset the index and clear the buffer */
 	*index = BUFFER_SIZE - 1;
 	while (*index >= 0)
 	{
