@@ -14,6 +14,10 @@ char *_strcpy(char *dest, const char *src)
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 34540f448976e041c12ea9dcb55176ea7cde7d12
 	int x;
 
 	x = 0;
@@ -26,8 +30,12 @@ char *_strcpy(char *dest, const char *src)
 		dest[x] = '\n';
 	return (dest);/*Returns the destination string*/
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> origin
+=======
+>>>>>>> bdf09a668be80935e2cb89fb08f6dbf7021ec12e
+>>>>>>> 34540f448976e041c12ea9dcb55176ea7cde7d12
 	int a;
 
 	a = 0;
@@ -40,8 +48,11 @@ char *_strcpy(char *dest, const char *src)
 		dest[a] = '\n';
 	return (dest);
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> bd80c0c9515f958508f16b8b7078b3f9883bce0a
 =======
+=======
+>>>>>>> 34540f448976e041c12ea9dcb55176ea7cde7d12
 =======
 	int x;
 
@@ -55,7 +66,13 @@ char *_strcpy(char *dest, const char *src)
 		dest[x] = '\n';
 	return (dest);/*Returns the destination string*/
 >>>>>>> origin/master
+<<<<<<< HEAD
 >>>>>>> origin
+=======
+=======
+>>>>>>> bd80c0c9515f958508f16b8b7078b3f9883bce0a
+>>>>>>> bdf09a668be80935e2cb89fb08f6dbf7021ec12e
+>>>>>>> 34540f448976e041c12ea9dcb55176ea7cde7d12
 }
 
 /**
@@ -94,6 +111,7 @@ int _strcmp_n(char *s1, char *s2, int n)
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	int x = 0, result = *s1 - *s2;
 
 	while (x <= n)
@@ -103,6 +121,8 @@ int _strcmp_n(char *s1, char *s2, int n)
 	while (a <= n)
 >>>>>>> bd80c0c9515f958508f16b8b7078b3f9883bce0a
 =======
+=======
+>>>>>>> 34540f448976e041c12ea9dcb55176ea7cde7d12
 	int a = 0, res = *s1 - *s2;
 
 	while (a <= n)
@@ -111,23 +131,48 @@ int _strcmp_n(char *s1, char *s2, int n)
 
 	while (x <= n)
 >>>>>>> origin/master
+<<<<<<< HEAD
 >>>>>>> origin
+=======
+=======
+	int x = 0, result = *s1 - *s2;
+
+	while (x <= n)
+=======
+	int a = 0, res = *s1 - *s2;
+
+	while (a <= n)
+>>>>>>> bd80c0c9515f958508f16b8b7078b3f9883bce0a
+>>>>>>> bdf09a668be80935e2cb89fb08f6dbf7021ec12e
+>>>>>>> 34540f448976e041c12ea9dcb55176ea7cde7d12
 	{
 		result = *(s1++) - *(s2++);/*Calculates diff btw char of s1 and s2*/
 		if (result != 0)/*If characters differ, break the loop*/
 			break;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		x++;
 =======
 		a++;
 >>>>>>> bd80c0c9515f958508f16b8b7078b3f9883bce0a
 =======
+=======
+>>>>>>> 34540f448976e041c12ea9dcb55176ea7cde7d12
 		a++;
 =======
 		x++;
 >>>>>>> origin/master
+<<<<<<< HEAD
 >>>>>>> origin
+=======
+=======
+		x++;
+=======
+		a++;
+>>>>>>> bd80c0c9515f958508f16b8b7078b3f9883bce0a
+>>>>>>> bdf09a668be80935e2cb89fb08f6dbf7021ec12e
+>>>>>>> 34540f448976e041c12ea9dcb55176ea7cde7d12
 	}
 
 	return (result);/*Returns diff btw the char or 0 if the str are equal*/
