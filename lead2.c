@@ -18,7 +18,7 @@ char *current_state = NULL, *path = NULL;
 if (access(params->args[0], F_OK | X_OK) == 0)
 {
 free(path);
-return (strdup(params->args[0]));
+return (_strdup(params->args[0]));
 }
 /*check for permissions denied error*/
 if (errno == EACCES)

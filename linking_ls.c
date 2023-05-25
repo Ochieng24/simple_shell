@@ -79,7 +79,7 @@ list_t *get_node(list_t *head, char *str)
 	d = head;
 	while (d)
 	{
-		if (!_strcmp(h->str, str))
+		if (!_strcmp(d->str, str))
 			break;
 		d = d->next;
 	}
@@ -92,7 +92,7 @@ list_t *get_node(list_t *head, char *str)
  */
 void free_list(list_t *head)
 {
-	list_t *ptr = head;/*Iterate thru list and free mem */node
+	list_t *ptr = head;/*Iterate thru list and free mem node*/
 
 	while (head)
 	{

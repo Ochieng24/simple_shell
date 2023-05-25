@@ -38,7 +38,7 @@ points[1] = '\0';/*terminate the string with null char*/
 return (points);
 }
 dimension = sizeof(int) * 8 + 1;/*calc dimension required for binary rep*/
-points = malloc(size);
+points = malloc(dimension);
 if (points)
 {
 for (x = 0; x < dimension; x++)
@@ -140,7 +140,7 @@ l++;
 buf_size = malloc(sizeof(char) * (l + 1));/*allocate memory for str rep of no*/
 if (buf_size)
 {
-buf[l] = '\0';/*terminate the str with null char*/
+buf_size[l] = '\0';/*terminate the str with null char*/
 if (n < 0)
 {
 buf_size[0] = '-';/*store neg sign in buffer*/

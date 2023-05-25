@@ -26,5 +26,5 @@ for (x = 0; params->args[x]; x++)  /* Loop through args array */
 free(params->args[x]);  /* Free each argument memory */
 
 free(params->args);  /* Free args array memory */
-free(params);  /* Free params structure memory */	}
+free(params);  /* Free params structure memory */
 }

@@ -48,7 +48,7 @@ char *_strtok(char *str, char *delim, char **savePtr)
 		mod = _strchr(ptr, '\'');/*find closing quote*/
 		if (!mod)
 			_printf("no matching quote found!\n");
-			exit(-1);/*exit if theres no match*/
+		exit(-1);/*exit if theres no match*/
 		*mod = '\0';
 		*savePtr = mod + 1;/*set savePtr to next char*/
 		return (_strdup(ptr));/*return substr within quotes*/

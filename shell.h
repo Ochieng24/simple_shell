@@ -96,5 +96,7 @@ void *_realloc(char **ptr, unsigned int old_size, unsigned int new_size);
 
 void write_error(param_t *params, char *msg);
 
+void _myExit(param_t *params);
+
 void _clear(param_t *params);
 #endif
